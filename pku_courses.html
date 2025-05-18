@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程视频下载链接</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #2196F3;
+            --background-color: #f5f5f5;
+            --card-background: white;
+            --text-primary: #333;
+            --text-secondary: #666;
+            --border-radius: 8px;
+            --spacing: 20px;
+            --transition-time: 0.3s;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--spacing);
+            background-color: var(--background-color);
+            color: var(--text-primary);
+        }
+
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px;
+            border-radius: var(--border-radius);
+            z-index: 1000;
+            display: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: opacity 0.5s;
+        }
+
+        .toast.show {
+            display: block;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @keyframes fadein {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        @keyframes fadeout {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            margin-top: 30px;
+        }
+
+        .category-section {
+            margin-bottom: 40px;
+        }
+
+        .course-section {
+            margin-bottom: 30px;
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 15px;
+            margin-bottom: var(--spacing);
+        }
+
+        .course-item {
+            background: var(--card-background);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform var(--transition-time), box-shadow var(--transition-time);
+        }
+
+        .course-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+        }
+
+        .download-link {
+            display: block;
+            color: var(--secondary-color);
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color var(--transition-time);
+        }
+
+        .download-link:hover {
+            background-color: #f0f7ff;
+            color: var(--primary-color);
+        }
+
+        .course-info {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .total-info {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-top: 30px;
+            padding: 15px;
+            background: var(--card-background);
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .category-nav {
+            position: sticky;
+            top: 0;
+            background-color: var(--background-color);
+            padding: 10px 0;
+            margin-bottom: 20px;
+            z-index: 100;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .category-nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: var(--card-background);
+            transition: background-color var(--transition-time);
+        }
+
+        .category-nav a:hover {
+            background-color: #f0f7ff;
+        }
+    </style>
+</head>
+<body>
+    <h1>课程视频下载链接</h1>
+    
+    <div class="category-nav">
+        <a href="#金融类">金融类</a>
+        <a href="#技术类">技术类</a>
+        <a href="#创新管理类">创新管理类</a>
+        <a href="#通识类">通识类</a>
+    </div>
+
+    
+    <div id="金融类" class="category-section">
+        <h2>金融类课程</h2>
+        <div class="course-section">
+            <h3>金融工程与风险管理</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=7d379f7ff1784f8daa05998ebbfd31af" download="金融工程与风险管理-2025-02-22-第1-3节.mp4">
+                        金融工程与风险管理-2025-02-22-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-02-22 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=0fc4ded2e47d4d58adce4586dabc757f" download="金融工程与风险管理-2025-03-01-第1-3节.mp4">
+                        金融工程与风险管理-2025-03-01-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-03-01 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=d2a83574396c418ba4e9def6010ea5ee" download="金融工程与风险管理-2025-03-08-第1-3节.mp4">
+                        金融工程与风险管理-2025-03-08-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-03-08 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=fda17c0f76ab4869aa9c2e5e7c236465" download="金融工程与风险管理-2025-03-15-第1-3节.mp4">
+                        金融工程与风险管理-2025-03-15-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-03-15 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=7049175de651432ca33bd14408474880" download="金融工程与风险管理-2025-03-22-第1-3节.mp4">
+                        金融工程与风险管理-2025-03-22-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-03-22 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=a0ae2521f9bb4e40935a8da5ccd6d5db" download="金融工程与风险管理-2025-03-29-第1-3节.mp4">
+                        金融工程与风险管理-2025-03-29-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-03-29 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=ca02c42f6faf4c128af2c853bde67b93" download="金融工程与风险管理-2025-04-19-第1-3节.mp4">
+                        金融工程与风险管理-2025-04-19-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-04-19 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=4f5ec0dcc5d0417b998fe04add3386cb" download="金融工程与风险管理-2025-04-26-第1-3节.mp4">
+                        金融工程与风险管理-2025-04-26-第1-3节
+                    </a>
+                    <div class="course-info">课程：金融工程与风险管理 | 日期：2025-04-26 | 节次：第1-3节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>金融科技理论与实践</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=ef4ddc5297cb4bcd830f574d25374a61" download="金融科技理论与实践-2025-02-22-第10-12节.mp4">
+                        金融科技理论与实践-2025-02-22-第10-12节
+                    </a>
+                    <div class="course-info">课程：金融科技理论与实践 | 日期：2025-02-22 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=853f892d019c43f298be50505d93779c" download="金融科技理论与实践-2025-03-01-第10-12节.mp4">
+                        金融科技理论与实践-2025-03-01-第10-12节
+                    </a>
+                    <div class="course-info">课程：金融科技理论与实践 | 日期：2025-03-01 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=aa10a1c51c1046a68ff4d91b14d19e7c" download="金融科技理论与实践-2025-03-08-第10-12节.mp4">
+                        金融科技理论与实践-2025-03-08-第10-12节
+                    </a>
+                    <div class="course-info">课程：金融科技理论与实践 | 日期：2025-03-08 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=4853ed833af744619cec4379e3c7e260" download="金融科技理论与实践-2025-03-15-第10-12节.mp4">
+                        金融科技理论与实践-2025-03-15-第10-12节
+                    </a>
+                    <div class="course-info">课程：金融科技理论与实践 | 日期：2025-03-15 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=b349c97a0c524abeaf24648d72721d86" download="金融科技理论与实践-2025-03-22-第10-12节.mp4">
+                        金融科技理论与实践-2025-03-22-第10-12节
+                    </a>
+                    <div class="course-info">课程：金融科技理论与实践 | 日期：2025-03-22 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=f33ca420001240c0adff7829a2031e37" download="金融科技理论与实践-2025-03-29-第10-12节.mp4">
+                        金融科技理论与实践-2025-03-29-第10-12节
+                    </a>
+                    <div class="course-info">课程：金融科技理论与实践 | 日期：2025-03-29 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=50ade4bcf940466783a97b65ec909fa2" download="金融科技理论与实践-2025-04-19-第10-12节.mp4">
+                        金融科技理论与实践-2025-04-19-第10-12节
+                    </a>
+                    <div class="course-info">课程：金融科技理论与实践 | 日期：2025-04-19 | 节次：第10-12节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>投资管理与互联网理财</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=8b7a3b70533340688e0258e906808323" download="投资管理与互联网理财-2025-03-02-第1-3节.mp4">
+                        投资管理与互联网理财-2025-03-02-第1-3节
+                    </a>
+                    <div class="course-info">课程：投资管理与互联网理财 | 日期：2025-03-02 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=607b777d2a8a4e52ad1792790f9bbb73" download="投资管理与互联网理财-2025-03-09-第1-3节.mp4">
+                        投资管理与互联网理财-2025-03-09-第1-3节
+                    </a>
+                    <div class="course-info">课程：投资管理与互联网理财 | 日期：2025-03-09 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=075de054dcda467cbf39395bc5d6928f" download="投资管理与互联网理财-2025-03-16-第1-3节.mp4">
+                        投资管理与互联网理财-2025-03-16-第1-3节
+                    </a>
+                    <div class="course-info">课程：投资管理与互联网理财 | 日期：2025-03-16 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=5f88c950bfc34f15b97fd9dc313fc631" download="投资管理与互联网理财-2025-03-23-第1-3节.mp4">
+                        投资管理与互联网理财-2025-03-23-第1-3节
+                    </a>
+                    <div class="course-info">课程：投资管理与互联网理财 | 日期：2025-03-23 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=f96e63e55a28456199177a4661b68b14" download="投资管理与互联网理财-2025-03-30-第1-3节.mp4">
+                        投资管理与互联网理财-2025-03-30-第1-3节
+                    </a>
+                    <div class="course-info">课程：投资管理与互联网理财 | 日期：2025-03-30 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=f532e92282814d62bcf38be6f38ff093" download="投资管理与互联网理财-2025-05-11-第1-3节.mp4">
+                        投资管理与互联网理财-2025-05-11-第1-3节
+                    </a>
+                    <div class="course-info">课程：投资管理与互联网理财 | 日期：2025-05-11 | 节次：第1-3节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>财务分析</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=3d49775afa394dc5aea67052ad650c76" download="财务分析-2025-03-02-第5-7节.mp4">
+                        财务分析-2025-03-02-第5-7节
+                    </a>
+                    <div class="course-info">课程：财务分析 | 日期：2025-03-02 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=96b90206b3c9486e9ebac2c942d818ef" download="财务分析-2025-03-09-第5-7节.mp4">
+                        财务分析-2025-03-09-第5-7节
+                    </a>
+                    <div class="course-info">课程：财务分析 | 日期：2025-03-09 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=a1d17934c758434fa40b3a63e4e064c0" download="财务分析-2025-03-16-第5-7节.mp4">
+                        财务分析-2025-03-16-第5-7节
+                    </a>
+                    <div class="course-info">课程：财务分析 | 日期：2025-03-16 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=2f265684fc7e4131921848fa19752043" download="财务分析-2025-03-23-第5-7节.mp4">
+                        财务分析-2025-03-23-第5-7节
+                    </a>
+                    <div class="course-info">课程：财务分析 | 日期：2025-03-23 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=80ad4f6e90ef43db9435eaf88b5492a4" download="财务分析-2025-03-30-第5-7节.mp4">
+                        财务分析-2025-03-30-第5-7节
+                    </a>
+                    <div class="course-info">课程：财务分析 | 日期：2025-03-30 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=91e800b640fb4352adbaddd99e3b8bb8" download="财务分析-2025-04-20-第5-7节.mp4">
+                        财务分析-2025-04-20-第5-7节
+                    </a>
+                    <div class="course-info">课程：财务分析 | 日期：2025-04-20 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=6909b209851f4722b84844883a047c52" download="财务分析-2025-05-11-第5-7节.mp4">
+                        财务分析-2025-05-11-第5-7节
+                    </a>
+                    <div class="course-info">课程：财务分析 | 日期：2025-05-11 | 节次：第5-7节</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="技术类" class="category-section">
+        <h2>技术类课程</h2>
+        <div class="course-section">
+            <h3>Python</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=a2fcc61a7d94413e982b07f6b88bac5b" download="Python-2025-02-22-第1-3节.mp4">
+                        Python-2025-02-22-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-02-22 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=e1279ac2ab574f22bd183dac9415ec62" download="Python-2025-03-01-第1-3节.mp4">
+                        Python-2025-03-01-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-03-01 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=a4bf7a1b57f94f4db1b140c7931910b0" download="Python-2025-03-08-第1-3节.mp4">
+                        Python-2025-03-08-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-03-08 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=48ecdaaeff23462c8df0dd47b09ae598" download="Python-2025-03-15-第1-3节.mp4">
+                        Python-2025-03-15-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-03-15 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=cd9cfe480d7944d78a0b2ac98f74a94c" download="Python-2025-03-22-第1-3节.mp4">
+                        Python-2025-03-22-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-03-22 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=832cd5a9e1e34b09b1148a36b411d08a" download="Python-2025-03-29-第1-3节.mp4">
+                        Python-2025-03-29-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-03-29 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=1e94e6ba28f14ee68907896341e579d8" download="Python-2025-04-19-第1-3节.mp4">
+                        Python-2025-04-19-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-04-19 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=0a57ee0b128b45a690f59a47ee130ef5" download="Python-2025-04-26-第1-3节.mp4">
+                        Python-2025-04-26-第1-3节
+                    </a>
+                    <div class="course-info">课程：Python | 日期：2025-04-26 | 节次：第1-3节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>算法设计与分析</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=234620f9e9e94932852a0d8f697f0089" download="算法设计与分析-2025-02-22-第10-12节.mp4">
+                        算法设计与分析-2025-02-22-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-02-22 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=538021ec85794ae59641026c3c237e1e" download="算法设计与分析-2025-03-01-第10-12节.mp4">
+                        算法设计与分析-2025-03-01-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-03-01 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=2d6c27da68654efbb8c35a3eb9c3202e" download="算法设计与分析-2025-03-08-第10-12节.mp4">
+                        算法设计与分析-2025-03-08-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-03-08 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=d54b9d3f264a47d8bbad6be69d1f7031" download="算法设计与分析-2025-03-15-第10-12节.mp4">
+                        算法设计与分析-2025-03-15-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-03-15 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=67aebc68f5eb4d69a66098562dced2a9" download="算法设计与分析-2025-03-22-第10-12节.mp4">
+                        算法设计与分析-2025-03-22-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-03-22 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=9b57eea3f94f4abdaaebe8390df610de" download="算法设计与分析-2025-03-29-第10-12节.mp4">
+                        算法设计与分析-2025-03-29-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-03-29 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=0c18bfaac3e64dd8a68fb6fd1f647a47" download="算法设计与分析-2025-04-19-第10-12节.mp4">
+                        算法设计与分析-2025-04-19-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-04-19 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=7977633b299d45a9ac7d31dec097b58b" download="算法设计与分析-2025-04-26-第10-12节.mp4">
+                        算法设计与分析-2025-04-26-第10-12节
+                    </a>
+                    <div class="course-info">课程：算法设计与分析 | 日期：2025-04-26 | 节次：第10-12节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>商业数据挖掘与分析</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=f807af5fa2a94a9f90db0a7fd309a89b" download="商业数据挖掘与分析-2025-03-02-第10-12节.mp4">
+                        商业数据挖掘与分析-2025-03-02-第10-12节
+                    </a>
+                    <div class="course-info">课程：商业数据挖掘与分析 | 日期：2025-03-02 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=ec1a5fda462748d3a628eb2ce3d7260b" download="商业数据挖掘与分析-2025-03-09-第10-12节.mp4">
+                        商业数据挖掘与分析-2025-03-09-第10-12节
+                    </a>
+                    <div class="course-info">课程：商业数据挖掘与分析 | 日期：2025-03-09 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=c61ee6aee72945798e1f6ac785539cae" download="商业数据挖掘与分析-2025-03-16-第10-12节.mp4">
+                        商业数据挖掘与分析-2025-03-16-第10-12节
+                    </a>
+                    <div class="course-info">课程：商业数据挖掘与分析 | 日期：2025-03-16 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=59f575a8f8a14526b28f24ff5ac62bc6" download="商业数据挖掘与分析-2025-03-23-第10-12节.mp4">
+                        商业数据挖掘与分析-2025-03-23-第10-12节
+                    </a>
+                    <div class="course-info">课程：商业数据挖掘与分析 | 日期：2025-03-23 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=cad0164f95254b2596fc525685f39d20" download="商业数据挖掘与分析-2025-03-30-第10-12节.mp4">
+                        商业数据挖掘与分析-2025-03-30-第10-12节
+                    </a>
+                    <div class="course-info">课程：商业数据挖掘与分析 | 日期：2025-03-30 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=a04e981ac73541cdb4b1c6e1ae517131" download="商业数据挖掘与分析-2025-04-20-第10-12节.mp4">
+                        商业数据挖掘与分析-2025-04-20-第10-12节
+                    </a>
+                    <div class="course-info">课程：商业数据挖掘与分析 | 日期：2025-04-20 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=c769b2a73c6842b5974f706b2c7e106b" download="商业数据挖掘与分析-2025-05-11-第10-12节.mp4">
+                        商业数据挖掘与分析-2025-05-11-第10-12节
+                    </a>
+                    <div class="course-info">课程：商业数据挖掘与分析 | 日期：2025-05-11 | 节次：第10-12节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>人工智能导论</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=089e99c0d47f4bfca01ea766c8e1fd71" download="人工智能导论-2025-03-02-第5-7节.mp4">
+                        人工智能导论-2025-03-02-第5-7节
+                    </a>
+                    <div class="course-info">课程：人工智能导论 | 日期：2025-03-02 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=2c441bfc86704136969621867b55e96d" download="人工智能导论-2025-03-09-第5-7节.mp4">
+                        人工智能导论-2025-03-09-第5-7节
+                    </a>
+                    <div class="course-info">课程：人工智能导论 | 日期：2025-03-09 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=955e2468a6af462ab7cb73aedba68426" download="人工智能导论-2025-03-16-第5-7节.mp4">
+                        人工智能导论-2025-03-16-第5-7节
+                    </a>
+                    <div class="course-info">课程：人工智能导论 | 日期：2025-03-16 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=8d0513f3aca04bba9eb64a12cc98922f" download="人工智能导论-2025-03-23-第5-7节.mp4">
+                        人工智能导论-2025-03-23-第5-7节
+                    </a>
+                    <div class="course-info">课程：人工智能导论 | 日期：2025-03-23 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=f1c7434282a9453db3a6d3cacabf5577" download="人工智能导论-2025-03-30-第5-7节.mp4">
+                        人工智能导论-2025-03-30-第5-7节
+                    </a>
+                    <div class="course-info">课程：人工智能导论 | 日期：2025-03-30 | 节次：第5-7节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=e6011a0b74504278869ef84ea8446a52" download="人工智能导论-2025-04-20-第5-7节.mp4">
+                        人工智能导论-2025-04-20-第5-7节
+                    </a>
+                    <div class="course-info">课程：人工智能导论 | 日期：2025-04-20 | 节次：第5-7节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>推荐技术及应用</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=26ee9b2402d14835a9edad58c457f2eb" download="推荐技术及应用-2025-03-23-第1-3节.mp4">
+                        推荐技术及应用-2025-03-23-第1-3节
+                    </a>
+                    <div class="course-info">课程：推荐技术及应用 | 日期：2025-03-23 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=b657217c16674729bd14ed314d78e20b" download="推荐技术及应用-2025-03-30-第1-3节.mp4">
+                        推荐技术及应用-2025-03-30-第1-3节
+                    </a>
+                    <div class="course-info">课程：推荐技术及应用 | 日期：2025-03-30 | 节次：第1-3节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=0b5392cf75bf4ac49997fe5021358b72" download="推荐技术及应用-2025-04-20-第1-3节.mp4">
+                        推荐技术及应用-2025-04-20-第1-3节
+                    </a>
+                    <div class="course-info">课程：推荐技术及应用 | 日期：2025-04-20 | 节次：第1-3节</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="创新管理类" class="category-section">
+        <h2>创新管理类课程</h2>
+        <div class="course-section">
+            <h3>创新项目管理</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=9c0b9217f82c402fbb7cfc7e41fa5afb" download="创新项目管理-2025-03-02-第10-12节.mp4">
+                        创新项目管理-2025-03-02-第10-12节
+                    </a>
+                    <div class="course-info">课程：创新项目管理 | 日期：2025-03-02 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=0a97f6c877764c1b92109a3f9e9a9d91" download="创新项目管理-2025-03-09-第10-12节.mp4">
+                        创新项目管理-2025-03-09-第10-12节
+                    </a>
+                    <div class="course-info">课程：创新项目管理 | 日期：2025-03-09 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=51b4b294ae364751a6ad7ce7abacc86d" download="创新项目管理-2025-03-16-第10-12节.mp4">
+                        创新项目管理-2025-03-16-第10-12节
+                    </a>
+                    <div class="course-info">课程：创新项目管理 | 日期：2025-03-16 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=cf243d96009d48f4ab7f9aedf87e4c3b" download="创新项目管理-2025-03-23-第10-12节.mp4">
+                        创新项目管理-2025-03-23-第10-12节
+                    </a>
+                    <div class="course-info">课程：创新项目管理 | 日期：2025-03-23 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=b4a185590167492395b293ef9df45335" download="创新项目管理-2025-03-30-第10-12节.mp4">
+                        创新项目管理-2025-03-30-第10-12节
+                    </a>
+                    <div class="course-info">课程：创新项目管理 | 日期：2025-03-30 | 节次：第10-12节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=84de328729854c799c843dfd2ff67beb" download="创新项目管理-2025-05-11-第10-12节.mp4">
+                        创新项目管理-2025-05-11-第10-12节
+                    </a>
+                    <div class="course-info">课程：创新项目管理 | 日期：2025-05-11 | 节次：第10-12节</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="通识类" class="category-section">
+        <h2>通识类课程</h2>
+        <div class="course-section">
+            <h3>自然辩证法概论</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=afc170caf4374283bb8818e160f967ac" download="自然辩证法概论-2025-02-22-第5-8节.mp4">
+                        自然辩证法概论-2025-02-22-第5-8节
+                    </a>
+                    <div class="course-info">课程：自然辩证法概论 | 日期：2025-02-22 | 节次：第5-8节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=8276e00834cd41e2ade85bb78b867898" download="自然辩证法概论-2025-03-01-第5-8节.mp4">
+                        自然辩证法概论-2025-03-01-第5-8节
+                    </a>
+                    <div class="course-info">课程：自然辩证法概论 | 日期：2025-03-01 | 节次：第5-8节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=1ff30eb96faa4a24a79a083ccf092f9a" download="自然辩证法概论-2025-03-08-第5-8节.mp4">
+                        自然辩证法概论-2025-03-08-第5-8节
+                    </a>
+                    <div class="course-info">课程：自然辩证法概论 | 日期：2025-03-08 | 节次：第5-8节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=e985ed4b145941c1887f2409f5eab628" download="自然辩证法概论-2025-03-15-第5-8节.mp4">
+                        自然辩证法概论-2025-03-15-第5-8节
+                    </a>
+                    <div class="course-info">课程：自然辩证法概论 | 日期：2025-03-15 | 节次：第5-8节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=c1ca4843a1624904ad40a28f7ca8f2d8" download="自然辩证法概论-2025-03-22-第5-8节.mp4">
+                        自然辩证法概论-2025-03-22-第5-8节
+                    </a>
+                    <div class="course-info">课程：自然辩证法概论 | 日期：2025-03-22 | 节次：第5-8节</div>
+                </div>
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=5f0fc5c7a56c4be4acc1fc9b30000690" download="自然辩证法概论-2025-03-29-第5-8节.mp4">
+                        自然辩证法概论-2025-03-29-第5-8节
+                    </a>
+                    <div class="course-info">课程：自然辩证法概论 | 日期：2025-03-29 | 节次：第5-8节</div>
+                </div>
+            </div>
+        </div>
+        <div class="course-section">
+            <h3>素质教育与前沿技术</h3>
+            <div class="course-list">
+                <div class="course-item">
+                    <a class="download-link" href="https://course.pku.edu.cn/webapps/bb-streammedia-hqy-BBLEARN/downloadVideo.action?resourceId=882e4180dc0b4c78b4edb99d5cf65860" download="素质教育与前沿技术-2025-04-26-第5-7节.mp4">
+                        素质教育与前沿技术-2025-04-26-第5-7节
+                    </a>
+                    <div class="course-info">课程：素质教育与前沿技术 | 日期：2025-04-26 | 节次：第5-7节</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="total-info">
+        <p>总计：73 个视频文件</p>
+        <p>课程类别：金融类、技术类、创新管理类、通识类</p>
+        <p>日期范围：2025-02-22 至 2025-05-11</p>
+    </div>
+
+    <div id="toast" class="toast">文件名已复制到剪贴板</div>
+    
+    <script>
+        // 创建一个函数，用于将文本复制到剪贴板
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.setAttribute('readonly', '');
+            textarea.style.position = 'absolute';
+            textarea.style.left = '-9999px';
+            document.body.appendChild(textarea);
+            
+            textarea.select();
+            document.execCommand('copy');
+            
+            document.body.removeChild(textarea);
+            
+            showToast('文件名已复制到剪贴板: ' + text);
+        }
+        
+        // 显示提示信息
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = "toast show";
+            
+            setTimeout(function(){ 
+                toast.className = toast.className.replace("show", ""); 
+            }, 3000);
+        }
+        
+        // 为所有下载链接添加事件监听器
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('.download-link');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    const filename = this.getAttribute('download');
+                    copyToClipboard(filename);
+                });
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('.category-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
