@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <title>3D 房间导航</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* 用 file:// 打开时显示说明，避免 CORS 白屏无提示 */
+    #file-protocol-tip { display: none; position: fixed; inset: 0; z-index: 9999;
+      background: #f5f0e8; flex-direction: column; align-items: center; justify-content: center;
+      padding: 24px; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', sans-serif;
+      text-align: center; line-height: 1.7; color: #4a3728; }
+    html.file-protocol #file-protocol-tip { display: flex; }
+    html.file-protocol #app { display: none; }
+    #file-protocol-tip code { display: block; margin: 12px 0; padding: 12px 16px; background: #fff;
+      border-radius: 8px; font-size: 13px; text-align: left; word-break: break-all;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+    #file-protocol-tip strong { color: #c62828; }
+  </style>
+</head>
+<body>
+  <!-- file:// 打开时的提示（ES Module 必须用 http 访问） -->
+  <div id="file-protocol-tip">
+    <p><strong>不能双击用「文件」方式打开本页面</strong></p>
+    <p>浏览器会拦截 <code>file://</code> 下的 ES 模块与配置请求（CORS）。<br />请在项目文件夹里启动本地服务器后再访问。</p>
+    <p>终端执行：</p>
+    <code>cd 本仓库目录<br />python3 -m http.server 8080</code>
+    <p>浏览器打开：<a href="http://localhost:8080">http://localhost:8080</a></p>
+    <p style="font-size:12px;color:#888;">GitHub Pages 部署后使用 <code>https://</code> 访问即可，无需本地服务器。</p>
+  </div>
+
+  <!-- 3D 渲染容器 -->
+  <div id="app">
+    <canvas id="canvas3d"></canvas>
+
+    <!-- 加载遮罩 -->
+    <div id="loading-overlay">
+      <div class="loading-inner">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">正在加载场景...</p>
+      </div>
+    </div>
+
+    <!-- 场景切换遮罩（渐变过渡） -->
+    <div id="scene-transition"></div>
+
+    <!-- 顶部提示区 -->
+    <div id="tooltip" class="tooltip hidden">
+      <span id="tooltip-text"></span>
+    </div>
+
+    <!-- 音效开关 -->
+    <div id="audio-toggle" class="ui-btn" title="音效开关">
+      <span id="audio-icon">🔇</span>
+    </div>
+
+    <!-- 返回按钮（器材库场景显示） -->
+    <div id="back-btn" class="ui-btn hidden" title="返回客厅">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </div>
+
+    <!-- 场景名称标签 -->
+    <div id="room-label">客厅</div>
+  </div>
+
+  <!-- 全局错误捕获（普通脚本，在模块加载前注册，确保能捕获模块加载失败） -->
+  <script>
+    function _showLoadErr(msg) {
+      var txt = document.querySelector('.loading-text');
+      var spinner = document.querySelector('.loading-spinner');
+      if (txt) { txt.textContent = '加载失败：' + msg; txt.style.color = '#e53935'; txt.style.fontSize = '12px'; }
+      if (spinner) spinner.style.display = 'none';
+    }
+    window.addEventListener('error', function(e) {
+      _showLoadErr((e.message || '未知错误') + ' (' + (e.filename || '') + ':' + e.lineno + ')');
+    });
+    window.addEventListener('unhandledrejection', function(e) {
+      _showLoadErr(e.reason ? (e.reason.message || String(e.reason)) : '模块加载失败');
+    });
+    // 10 秒超时兜底
+    var _loadTimer = setTimeout(function() {
+      var overlay = document.getElementById('loading-overlay');
+      if (overlay && overlay.style.display !== 'none' && !overlay.classList.contains('fade-out')) {
+        _showLoadErr('加载超时，请检查网络后刷新重试');
+      }
+    }, 10000);
+    window._clearLoadTimer = function() { clearTimeout(_loadTimer); };
+  </script>
+
+  <!-- Import Map：锁定 three.js 0.160.0 及其 addons 路径 -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- 仅 http/https 下动态加载主模块，避免 file:// 触发 CORS 报错 -->
+  <script>
+    (function () {
+      if (location.protocol === 'file:') {
+        document.documentElement.classList.add('file-protocol');
+        return;
+      }
+      var s = document.createElement('script');
+      s.type = 'module';
+      s.src = 'js/main.js';
+      document.body.appendChild(s);
+    })();
+  </script>
+</body>
+</html>

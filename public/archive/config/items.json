@@ -1,0 +1,238 @@
+{
+  "items": [
+    {
+      "id": "guitar",
+      "name": "吉他",
+      "type": "hobby",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "box",
+        "size": [0.4, 1.2, 0.15],
+        "color": "#4CAF50",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["light_up", "shake"],
+        "click": ["role_walk_to", "role_pickup", "use_guitar", "put_back"],
+        "sound": "sounds/guitar.mp3",
+        "vibration": 30
+      },
+      "description": "吉他（兴趣物品），点击后角色抱持弹奏"
+    },
+    {
+      "id": "microphone",
+      "name": "麦克风",
+      "type": "hobby",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "cylinder",
+        "size": [0.12, 0.5, 0.12],
+        "color": "#212121",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["light_up", "shake"],
+        "click": ["role_walk_to", "role_pickup", "use_microphone", "put_back"],
+        "sound": "sounds/microphone.mp3",
+        "vibration": 30
+      },
+      "description": "麦克风（兴趣物品），点击后角色拿取说话"
+    },
+    {
+      "id": "ski_board",
+      "name": "滑雪板",
+      "type": "hobby",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "box",
+        "size": [0.8, 0.12, 0.25],
+        "color": "#FF5722",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["light_up", "shake"],
+        "click": ["role_walk_to", "role_pickup", "use_ski_board", "put_back"],
+        "sound": "sounds/ski.mp3",
+        "vibration": 30
+      },
+      "description": "滑雪板（兴趣物品），点击后角色横抱倾斜"
+    },
+    {
+      "id": "swim_goggles",
+      "name": "游泳镜",
+      "type": "hobby",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "box",
+        "size": [0.35, 0.15, 0.08],
+        "color": "#03A9F4",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["light_up", "shake"],
+        "click": ["role_walk_to", "role_pickup", "use_swim_goggles", "put_back"],
+        "sound": "sounds/swim.mp3",
+        "vibration": 30
+      },
+      "description": "游泳镜（兴趣物品），点击后角色佩戴转动头部"
+    },
+    {
+      "id": "tennis_racket",
+      "name": "网球拍",
+      "type": "hobby",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "box",
+        "size": [0.28, 0.7, 0.04],
+        "color": "#8BC34A",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["light_up", "shake"],
+        "click": ["role_walk_to", "role_pickup", "use_tennis_racket", "put_back"],
+        "sound": "sounds/tennis.mp3",
+        "vibration": 30
+      },
+      "description": "网球拍（兴趣物品），点击后角色挥拍击球"
+    },
+    {
+      "id": "badminton_racket",
+      "name": "羽毛球拍",
+      "type": "hobby",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "box",
+        "size": [0.22, 0.65, 0.04],
+        "color": "#9C27B0",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["light_up", "shake"],
+        "click": ["role_walk_to", "role_pickup", "use_badminton_racket", "put_back"],
+        "sound": "sounds/badminton.mp3",
+        "vibration": 30
+      },
+      "description": "羽毛球拍（兴趣物品），点击后角色挥拍击球"
+    },
+    {
+      "id": "door_equipment",
+      "name": "器材库门",
+      "type": "door",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "box",
+        "size": [0.9, 2.0, 0.08],
+        "color": "#F5F5F5",
+        "outlineColor": "#BDBDBD"
+      },
+      "interaction": {
+        "touch": ["light_handle", "shake"],
+        "click": ["role_walk_to", "open_door", "enter_room"],
+        "targetRoom": "equipment_room",
+        "sound": "sounds/door_open.mp3",
+        "vibration": 50
+      },
+      "description": "器材库房门，点击后角色走过去开门进入"
+    },
+    {
+      "id": "badge_portfolio",
+      "name": "作品集",
+      "type": "navigation",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "cylinder",
+        "size": [0.45, 0.08, 0.45],
+        "color": "#2196F3",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["scale_up", "light_up", "shake"],
+        "click": ["role_walk_to", "touch_item", "navigate"],
+        "targetUrl": "https://skyzhao1223.github.io",
+        "sound": "sounds/click.mp3",
+        "vibration": 50
+      },
+      "description": "作品集导航徽章，点击跳转对应页面"
+    },
+    {
+      "id": "badge_blog",
+      "name": "博客",
+      "type": "navigation",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "cylinder",
+        "size": [0.45, 0.08, 0.45],
+        "color": "#4CAF50",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["scale_up", "light_up", "shake"],
+        "click": ["role_walk_to", "touch_item", "navigate"],
+        "targetUrl": "https://blog.example.com",
+        "sound": "sounds/click.mp3",
+        "vibration": 50
+      },
+      "description": "博客导航徽章，点击跳转对应页面"
+    },
+    {
+      "id": "badge_github",
+      "name": "GitHub",
+      "type": "navigation",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "cylinder",
+        "size": [0.45, 0.08, 0.45],
+        "color": "#FFC107",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["scale_up", "light_up", "shake"],
+        "click": ["role_walk_to", "touch_item", "navigate"],
+        "targetUrl": "https://github.com/skyzhao1223",
+        "sound": "sounds/click.mp3",
+        "vibration": 50
+      },
+      "description": "GitHub导航徽章，点击跳转对应页面"
+    },
+    {
+      "id": "badge_contact",
+      "name": "联系我",
+      "type": "navigation",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "cylinder",
+        "size": [0.45, 0.08, 0.45],
+        "color": "#F44336",
+        "outlineColor": "#FFFFFF"
+      },
+      "interaction": {
+        "touch": ["scale_up", "light_up", "shake"],
+        "click": ["role_walk_to", "touch_item", "navigate"],
+        "targetUrl": "mailto:you@example.com",
+        "sound": "sounds/click.mp3",
+        "vibration": 50
+      },
+      "description": "联系我导航徽章，点击跳转对应页面"
+    },
+    {
+      "id": "door_future",
+      "name": "未来空间门",
+      "type": "door",
+      "3dModel": {
+        "type": "built-in",
+        "shape": "box",
+        "size": [0.9, 2.0, 0.08],
+        "color": "#EEEEEE",
+        "outlineColor": "#BDBDBD"
+      },
+      "interaction": {
+        "touch": ["light_handle", "shake"],
+        "click": ["role_walk_to", "knock_door", "back"],
+        "tips": "即将上线，敬请期待 ✨",
+        "sound": "sounds/knock.mp3",
+        "vibration": 30
+      },
+      "description": "未来空间房门，点击后角色走过去敲门"
+    }
+  ]
+}

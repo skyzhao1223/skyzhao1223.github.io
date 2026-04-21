@@ -1,0 +1,257 @@
+---
+import CategorySection from '../components/CategorySection.astro';
+import SearchBar from '../components/SearchBar.astro';
+import '../styles/global.css';
+import linksData from '../data/links.json';
+
+const totalLinks = linksData.reduce((s, g) => s + g.links.length, 0);
+const year = new Date().getFullYear();
+---
+
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A curated index of daily destinations." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>Index — Sky</title>
+  </head>
+  <body>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="spotlight" aria-hidden="true" id="spotlight"></div>
+
+    <nav class="topbar">
+      <span class="meta">Sky / Index</span>
+      <span class="meta meta-bracket">v 1.0</span>
+      <span class="meta time" id="clock">— : —</span>
+    </nav>
+
+    <main class="page">
+      <header class="hero">
+        <div class="hero-line meta">
+          <span class="meta-bracket">{year}</span>
+          <span>—</span>
+          <span class="meta-bracket">{linksData.length} sections</span>
+          <span>—</span>
+          <span class="meta-bracket">{totalLinks} links</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span class="line">A small, slow</span>
+          <span class="line">
+            <em>collection</em> of
+          </span>
+          <span class="line">
+            places I keep <em>returning</em> to.
+          </span>
+        </h1>
+
+        <div class="hero-foot">
+          <p class="hero-desc">
+            Not a feed. Not a dashboard. Just an index — quietly maintained, mostly for myself.
+          </p>
+          <a class="scroll-cue meta meta-bracket" href="#begin">Scroll</a>
+        </div>
+      </header>
+
+      <hr class="rule" />
+
+      <SearchBar />
+
+      <div id="begin">
+        {linksData.map((group, i) => (
+          <CategorySection
+            index={i + 1}
+            category={group.category}
+            subtitle={group.subtitle}
+            links={group.links}
+          />
+        ))}
+      </div>
+
+      <footer class="footer">
+        <div class="footer-row">
+          <span class="meta">© {year} — Sky</span>
+          <span class="meta">
+            Built with <a href="https://astro.build" target="_blank" rel="noopener noreferrer" class="ulink">Astro</a>
+            &nbsp;·&nbsp;
+            <a href="https://github.com/skyzhao1223" target="_blank" rel="noopener noreferrer" class="ulink">GitHub</a>
+          </span>
+          <span class="meta meta-bracket">end of index</span>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      const clock = document.getElementById('clock');
+      function tick() {
+        if (!clock) return;
+        const d = new Date();
+        const hh = String(d.getHours()).padStart(2, '0');
+        const mm = String(d.getMinutes()).padStart(2, '0');
+        clock.textContent = `${hh} : ${mm}`;
+      }
+      tick();
+      setInterval(tick, 1000 * 30);
+
+      const spot = document.getElementById('spotlight');
+      if (spot && window.matchMedia('(pointer: fine)').matches) {
+        document.addEventListener('pointermove', (e) => {
+          spot.style.transform = `translate(${e.clientX - 240}px, ${e.clientY - 240}px)`;
+        });
+      } else if (spot) {
+        spot.style.display = 'none';
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  .grain {
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    pointer-events: none;
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    z-index: 1;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  }
+
+  .spotlight {
+    position: fixed;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    background: radial-gradient(circle, rgba(255, 91, 26, 0.10) 0%, transparent 60%);
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+  }
+
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 28px;
+    background: linear-gradient(to bottom, var(--bg) 60%, transparent);
+  }
+
+  .topbar .time {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .page {
+    position: relative;
+    z-index: 2;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 100px 28px 0;
+  }
+
+  .hero {
+    padding: 60px 0 80px;
+  }
+
+  .hero-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 80px;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 300;
+    font-size: clamp(44px, 9vw, 116px);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--fg);
+    margin-bottom: 80px;
+  }
+
+  .hero-title .line {
+    display: block;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 400;
+  }
+
+  .hero-foot {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .hero-desc {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(16px, 1.6vw, 20px);
+    color: var(--fg-mute);
+    max-width: 38ch;
+    line-height: 1.5;
+  }
+
+  .scroll-cue {
+    color: var(--fg-mute);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  .scroll-cue:hover { color: var(--accent); }
+
+  hr.rule {
+    margin: 0 0 56px;
+  }
+
+  #begin {
+    padding-top: 8px;
+  }
+
+  .footer {
+    margin-top: 80px;
+    padding: 40px 0 60px;
+    border-top: 1px solid var(--rule);
+  }
+
+  .footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .ulink {
+    color: var(--fg);
+    border-bottom: 1px solid var(--fg-faint);
+    padding-bottom: 1px;
+    transition: border-color 0.2s ease, color 0.2s ease;
+  }
+  .ulink:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  @media (max-width: 720px) {
+    .topbar { padding: 14px 18px; }
+    .topbar .time { display: none; }
+    .page { padding: 70px 18px 0; }
+    .hero { padding: 24px 0 56px; }
+    .hero-line { margin-bottom: 40px; gap: 8px; }
+    .hero-title { margin-bottom: 48px; }
+    .footer-row { gap: 12px; }
+  }
+</style>

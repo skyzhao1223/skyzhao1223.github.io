@@ -1,0 +1,114 @@
+---
+interface Props {
+  index: number;
+  title: string;
+  url: string;
+  tag: string;
+}
+
+const { index, title, url, tag } = Astro.props;
+const isExternal = url.startsWith('http');
+const num = String(index).padStart(2, '0');
+---
+
+<a
+  href={url}
+  target={isExternal ? '_blank' : '_self'}
+  rel={isExternal ? 'noopener noreferrer' : undefined}
+  class="row"
+  data-title={title}
+>
+  <span class="num">{num}</span>
+  <span class="title serif">{title}</span>
+  <span class="dots" aria-hidden="true"></span>
+  <span class="tag meta">{tag}</span>
+  <span class="arrow" aria-hidden="true">{isExternal ? '↗' : '→'}</span>
+</a>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto auto;
+    align-items: baseline;
+    gap: 16px;
+    padding: 18px 4px 18px 4px;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+    transition: padding 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .row::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: translateX(-101%);
+    transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    z-index: 0;
+  }
+
+  .row:hover::before { transform: translateX(0); }
+  .row:hover { padding-left: 20px; padding-right: 20px; }
+  .row:hover .num,
+  .row:hover .title,
+  .row:hover .dots,
+  .row:hover .tag,
+  .row:hover .arrow {
+    color: var(--bg);
+  }
+  .row:hover .dots { border-color: var(--bg); opacity: 0.4; }
+  .row:hover .arrow { transform: translate(4px, -4px) rotate(0deg); }
+
+  .num,
+  .title,
+  .dots,
+  .tag,
+  .arrow {
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease, transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .num {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-faint);
+    letter-spacing: 0.08em;
+    min-width: 24px;
+  }
+
+  .title {
+    font-size: clamp(20px, 3vw, 30px);
+    font-style: italic;
+    color: var(--fg);
+    line-height: 1;
+  }
+
+  .dots {
+    border-bottom: 1px dotted var(--fg-faint);
+    align-self: end;
+    margin-bottom: 8px;
+    opacity: 0.6;
+  }
+
+  .tag {
+    font-size: 10px;
+    color: var(--fg-mute);
+    white-space: nowrap;
+  }
+
+  .arrow {
+    font-family: var(--mono);
+    font-size: 16px;
+    color: var(--fg-mute);
+    display: inline-block;
+  }
+
+  @media (max-width: 720px) {
+    .row { gap: 12px; padding: 14px 4px; }
+    .row:hover { padding-left: 10px; padding-right: 10px; }
+    .title { font-size: 22px; }
+    .tag { display: none; }
+  }
+</style>

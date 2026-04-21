@@ -1,0 +1,78 @@
+---
+import LinkCard from './LinkCard.astro';
+
+interface Link {
+  title: string;
+  url: string;
+  tag: string;
+}
+
+interface Props {
+  index: number;
+  category: string;
+  subtitle: string;
+  links: Link[];
+}
+
+const { index, category, subtitle, links } = Astro.props;
+const sectionNum = `S/${String(index).padStart(2, '0')}`;
+---
+
+<section class="section">
+  <header class="section-head">
+    <span class="meta meta-bracket">{sectionNum}</span>
+    <h2 class="section-title">{category}</h2>
+    <span class="section-sub serif">— {subtitle}</span>
+    <span class="meta count meta-bracket">{links.length} items</span>
+  </header>
+
+  <div class="rows">
+    {links.map((link, i) => (
+      <LinkCard
+        index={i + 1}
+        title={link.title}
+        url={link.url}
+        tag={link.tag}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  .section {
+    margin-bottom: 80px;
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--fg-faint);
+    margin-bottom: 4px;
+  }
+
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(28px, 4vw, 44px);
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--fg);
+  }
+
+  .section-sub {
+    color: var(--fg-mute);
+    font-size: clamp(14px, 1.6vw, 18px);
+  }
+
+  .count {
+    margin-left: auto;
+  }
+
+  @media (max-width: 720px) {
+    .section { margin-bottom: 56px; }
+    .count { margin-left: 0; flex-basis: 100%; }
+  }
+</style>

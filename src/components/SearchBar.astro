@@ -1,0 +1,110 @@
+---
+---
+
+<div class="search">
+  <span class="search-prefix meta">→ Filter</span>
+  <input
+    type="text"
+    id="search-input"
+    class="search-input"
+    placeholder="type to filter, press / to focus"
+    autocomplete="off"
+    spellcheck="false"
+  />
+  <span class="search-hint meta meta-bracket"><kbd>/</kbd></span>
+</div>
+
+<style>
+  .search {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 64px;
+  }
+
+  .search-prefix {
+    color: var(--fg-mute);
+    flex-shrink: 0;
+  }
+
+  .search-input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: var(--fg);
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(18px, 2.4vw, 26px);
+    letter-spacing: -0.01em;
+    padding: 0;
+    min-width: 0;
+  }
+
+  .search-input::placeholder {
+    color: var(--fg-faint);
+    font-style: italic;
+  }
+
+  .search-input:focus::placeholder {
+    color: transparent;
+  }
+
+  .search-hint {
+    color: var(--fg-faint);
+    flex-shrink: 0;
+  }
+
+  .search-hint kbd {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--fg-mute);
+    padding: 1px 6px;
+    border: 1px solid var(--fg-faint);
+    border-radius: 2px;
+  }
+
+  @media (max-width: 720px) {
+    .search-hint { display: none; }
+    .search { margin-bottom: 40px; }
+  }
+</style>
+
+<script>
+  const input = document.getElementById('search-input') as HTMLInputElement;
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === '/' && document.activeElement !== input) {
+      e.preventDefault();
+      input.focus();
+    }
+    if (e.key === 'Escape') {
+      input.blur();
+      input.value = '';
+      filter('');
+    }
+  });
+
+  input.addEventListener('input', () => filter(input.value));
+
+  function filter(query: string) {
+    const q = query.toLowerCase().trim();
+    const sections = document.querySelectorAll('.section');
+
+    sections.forEach((section) => {
+      const rows = section.querySelectorAll('.row') as NodeListOf<HTMLElement>;
+      let visible = 0;
+      rows.forEach((row) => {
+        const title = (row.dataset.title ?? '').toLowerCase();
+        const match = !q || title.includes(q);
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+      (section as HTMLElement).style.display = visible > 0 ? '' : 'none';
+    });
+  }
+</script>

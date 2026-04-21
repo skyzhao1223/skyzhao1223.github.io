@@ -1,0 +1,98 @@
+{
+  "rooms": [
+    {
+      "id": "living_room",
+      "name": "客厅",
+      "type": "system",
+      "background": {
+        "wallColor": "#EDE4D4",
+        "floorColor": "#C8A060"
+      },
+      "defaultLayout": [
+        {
+          "itemId": "badge_portfolio",
+          "position": [-1.35, 0.74, 3.1],
+          "rotation": [0, 0, 0],
+          "label": "作品集"
+        },
+        {
+          "itemId": "badge_blog",
+          "position": [-0.45, 0.74, 3.1],
+          "rotation": [0, 0, 0],
+          "label": "博客"
+        },
+        {
+          "itemId": "badge_github",
+          "position": [0.45, 0.74, 3.1],
+          "rotation": [0, 0, 0],
+          "label": "GitHub"
+        },
+        {
+          "itemId": "badge_contact",
+          "position": [1.35, 0.74, 3.1],
+          "rotation": [0, 0, 0],
+          "label": "联系我"
+        },
+        {
+          "itemId": "door_equipment",
+          "position": [-5.15, 1.05, -1.2],
+          "rotation": [0, 1.5708, 0]
+        },
+        {
+          "itemId": "door_future",
+          "position": [5.15, 1.05, -1.2],
+          "rotation": [0, -1.5708, 0]
+        }
+      ],
+      "roleDefaultState": "sit",
+      "rolePosition": [0, 0.42, 0.6],
+      "cameraPosition": [0, 3.8, 9.2],
+      "cameraTarget": [0, 1.2, 0]
+    },
+    {
+      "id": "equipment_room",
+      "name": "器材库",
+      "type": "system",
+      "background": {
+        "wallColor": "#E5DDD0",
+        "floorColor": "#C0986A"
+      },
+      "defaultLayout": [
+        {
+          "itemId": "guitar",
+          "position": [-2.2, 1.4, -1.5],
+          "rotation": [0, 0, 0.2]
+        },
+        {
+          "itemId": "microphone",
+          "position": [-0.7, 1.25, -1.5],
+          "rotation": [0, 0, 0]
+        },
+        {
+          "itemId": "ski_board",
+          "position": [0.7, 1.2, -1.5],
+          "rotation": [0, 0, 0.1]
+        },
+        {
+          "itemId": "swim_goggles",
+          "position": [2.2, 1.2, -1.5],
+          "rotation": [0, 0, 0]
+        },
+        {
+          "itemId": "tennis_racket",
+          "position": [-1.4, 1.3, -1.5],
+          "rotation": [0, 0, 0.15]
+        },
+        {
+          "itemId": "badminton_racket",
+          "position": [1.4, 1.3, -1.5],
+          "rotation": [0, 0, -0.15]
+        }
+      ],
+      "roleDefaultState": "stand",
+      "rolePosition": [0, 0, 0.5],
+      "cameraPosition": [0, 3.5, 7.5],
+      "cameraTarget": [0, 1.0, 0]
+    }
+  ]
+}

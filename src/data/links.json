@@ -1,0 +1,59 @@
+[
+  {
+    "category": "Tools",
+    "subtitle": "Daily essentials",
+    "links": [
+      { "title": "ChatGPT", "url": "https://chat.openai.com", "tag": "AI" },
+      { "title": "Google", "url": "https://www.google.com", "tag": "Search" },
+      { "title": "DeepL", "url": "https://www.deepl.com/translator", "tag": "Translate" },
+      { "title": "Excalidraw", "url": "https://excalidraw.com", "tag": "Whiteboard" }
+    ]
+  },
+  {
+    "category": "Develop",
+    "subtitle": "Code & docs",
+    "links": [
+      { "title": "GitHub", "url": "https://github.com", "tag": "Code" },
+      { "title": "MDN Web Docs", "url": "https://developer.mozilla.org", "tag": "Docs" },
+      { "title": "Stack Overflow", "url": "https://stackoverflow.com", "tag": "Q&A" },
+      { "title": "Can I Use", "url": "https://caniuse.com", "tag": "Compat" }
+    ]
+  },
+  {
+    "category": "Design",
+    "subtitle": "Visual inspiration",
+    "links": [
+      { "title": "Dribbble", "url": "https://dribbble.com", "tag": "Gallery" },
+      { "title": "Figma", "url": "https://www.figma.com", "tag": "Tool" },
+      { "title": "Unsplash", "url": "https://unsplash.com", "tag": "Photo" },
+      { "title": "Color Hunt", "url": "https://colorhunt.co", "tag": "Palette" }
+    ]
+  },
+  {
+    "category": "Learn",
+    "subtitle": "Mind food",
+    "links": [
+      { "title": "Coursera", "url": "https://www.coursera.org", "tag": "Course" },
+      { "title": "LeetCode", "url": "https://leetcode.cn", "tag": "Practice" },
+      { "title": "freeCodeCamp", "url": "https://www.freecodecamp.org", "tag": "Tutorial" },
+      { "title": "Hacker News", "url": "https://news.ycombinator.com", "tag": "Read" }
+    ]
+  },
+  {
+    "category": "Productivity",
+    "subtitle": "Get things done",
+    "links": [
+      { "title": "Notion", "url": "https://www.notion.so", "tag": "Notes" },
+      { "title": "Trello", "url": "https://trello.com", "tag": "Board" },
+      { "title": "Todoist", "url": "https://todoist.com", "tag": "Tasks" },
+      { "title": "Miro", "url": "https://miro.com", "tag": "Canvas" }
+    ]
+  },
+  {
+    "category": "Archive",
+    "subtitle": "Personal projects",
+    "links": [
+      { "title": "3D Room Navigation", "url": "/archive/", "tag": "WebGL" }
+    ]
+  }
+]
