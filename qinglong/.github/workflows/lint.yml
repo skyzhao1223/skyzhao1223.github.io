@@ -1,0 +1,52 @@
+name: Lint
+
+on:
+  push:
+    paths:
+      - 'qinglong/**'
+  pull_request:
+    paths:
+      - 'qinglong/**'
+
+jobs:
+  node-syntax-check:
+    name: Node Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Check JS files
+        run: |
+          set -e
+          shopt -s globstar nullglob
+          for f in qinglong/scripts/**/*.js; do
+            echo "==> Checking $f"
+            node --check "$f"
+          done
+
+  python-syntax-check:
+    name: Python Syntax Check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Compile Python files
+        run: |
+          set -e
+          if compgen -G "qinglong/scripts/**/*.py" > /dev/null; then
+            python -m compileall -q qinglong/scripts
+          else
+            echo "No python scripts to check."
+          fi
