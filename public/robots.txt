@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://zhaosky.cn/sitemap.xml

@@ -1,0 +1,16 @@
+node_modules/
+dist/
+
+# Markdown source (local only, deployed as data.json)
+content/
+
+# Legacy demo directory (migrated to src/)
+demo/
+
+# Resume plaintext
+resume.md
+resume.pdf
+
+# System files
+.DS_Store
+*.log
