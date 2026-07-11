@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "private": true,
   "description": "Sky Zhao's personal site",
+  "engines": {
+    "node": ">=22"
+  },
   "scripts": {
-    "dev": "node scripts/build-content.js && vite",
-    "build": "node scripts/build-content.js && vite build && node scripts/postbuild.js",
-    "prepare:pages": "node scripts/prepare-pages.js",
+    "dev": "node scripts/build-content.js && node scripts/generate-meta.js && vite",
+    "build": "node scripts/build-content.js && node scripts/generate-meta.js && vite build && node scripts/postbuild.js",
     "preview": "vite preview"
   },
   "repository": {

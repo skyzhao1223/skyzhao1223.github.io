@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://skyzhao1223.github.io/sitemap.xml

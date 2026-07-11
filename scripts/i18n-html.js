@@ -23,15 +23,23 @@ function buildHreflang(domain, page) {
   ].join('\n  ');
 }
 
+function stripHreflang(html) {
+  return html.replace(/\s*<link rel="alternate" hreflang="[^"]*" href="[^"]*">\s*/g, '\n');
+}
+
 function injectHreflang(html, domain, page) {
   const hreflang = buildHreflang(domain, page);
-  return html.replace('</head>', `  ${hreflang}\n</head>`);
+  return stripHreflang(html).replace('</head>', `  ${hreflang}\n</head>`);
+}
+
+function injectSiteUrl(html, domain) {
+  return html.replaceAll('__SITE_URL__', domain);
 }
 
 function buildEnglishHtml(html, domain, enJson) {
-  let enOut = html
-    .replace('lang="zh-CN"', 'lang="en"')
-    .replace('</head>', `  ${buildHreflang(domain, 'en')}\n</head>`);
+  let enOut = injectSiteUrl(html, domain)
+    .replace('lang="zh-CN"', 'lang="en"');
+  enOut = injectHreflang(enOut, domain, 'en');
 
   if (enJson._title) {
     enOut = enOut.replace(/<title>[^<]*<\/title>/, `<title>${enJson._title}</title>`);
@@ -51,6 +59,11 @@ function buildEnglishHtml(html, domain, enJson) {
       'g'
     );
     enOut = enOut.replace(regex, `$1${val}$2`);
+    const htmlRegex = new RegExp(
+      `(data-i18n-html="${key}"[^>]*>)[\\s\\S]*?(</)`,
+      'g'
+    );
+    enOut = enOut.replace(htmlRegex, `$1${val}$2`);
   }
 
   const attrNames = ['title', 'alt', 'aria-label', 'placeholder', 'content'];
@@ -89,7 +102,7 @@ function buildEnglishHtml(html, domain, enJson) {
 function writeBilingualPages({ rootDir, zhHtmlPath, zhOutPath, enOutPath, domain }) {
   const enJson = loadEnJson(rootDir);
   const html = fs.readFileSync(zhHtmlPath, 'utf-8');
-  const zhOut = injectHreflang(html, domain, 'zh');
+  const zhOut = injectHreflang(injectSiteUrl(html, domain), domain, 'zh');
   const enOut = buildEnglishHtml(html, domain, enJson);
 
   fs.writeFileSync(zhOutPath, zhOut, 'utf-8');
@@ -100,5 +113,6 @@ function writeBilingualPages({ rootDir, zhHtmlPath, zhOutPath, enOutPath, domain
 module.exports = {
   buildEnglishHtml,
   injectHreflang,
+  injectSiteUrl,
   writeBilingualPages,
 };
