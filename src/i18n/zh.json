@@ -1,6 +1,27 @@
 {
   "_title": "赵大仁 · SKY ZHAO",
   "_description": "赵大仁 / SKY ZHAO 的个人主页",
+  "_typewriter_phrases": [
+    "code · design · build · ship",
+    "用代码造东西的人",
+    "make it work, make it beautiful."
+  ],
+  "_tag_labels": {
+    "__all__": "全部",
+    "ai": "AI",
+    "agent": "Agent",
+    "design": "设计",
+    "product": "产品",
+    "music": "唱歌",
+    "band": "乐队",
+    "photo": "摄影",
+    "ski": "滑雪",
+    "tennis": "网球",
+    "cycling": "骑行",
+    "driving": "驾驶",
+    "gaming": "游戏",
+    "badminton": "羽毛球"
+  },
   "nav_about": "关于",
   "nav_skills": "能力",
   "nav_works": "作品",

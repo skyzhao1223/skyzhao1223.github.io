@@ -28,6 +28,16 @@ export function getMessages() {
   return cache[lang] || cache.zh || {};
 }
 
+export function getTypewriterPhrases() {
+  const msgs = getMessages();
+  return Array.isArray(msgs._typewriter_phrases) ? msgs._typewriter_phrases : [];
+}
+
+export function getTagLabel(id) {
+  const labels = getMessages()._tag_labels || {};
+  return labels[id] || id;
+}
+
 export async function initI18n() {
   await ensureI18nLoaded();
   const msgs = getMessages();

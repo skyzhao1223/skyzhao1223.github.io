@@ -1,6 +1,27 @@
 {
   "_title": "Sky Zhao — Builder · Explorer · Maker",
   "_description": "Personal site of Sky Zhao — AI, full-stack, design, and mechanical engineering.",
+  "_typewriter_phrases": [
+    "code · design · build · ship",
+    "pixels, models, and machines",
+    "make it work, make it beautiful."
+  ],
+  "_tag_labels": {
+    "__all__": "All",
+    "ai": "AI",
+    "agent": "Agent",
+    "design": "Design",
+    "product": "Product",
+    "music": "Singing",
+    "band": "Band",
+    "photo": "Photo",
+    "ski": "Ski",
+    "tennis": "Tennis",
+    "cycling": "Cycling",
+    "driving": "Driving",
+    "gaming": "Gaming",
+    "badminton": "Badminton"
+  },
   "nav_about": "About",
   "nav_skills": "Skills",
   "nav_works": "Works",

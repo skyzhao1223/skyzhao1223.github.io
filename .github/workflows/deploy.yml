@@ -3,6 +3,20 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - 'avatar.png'
+      - 'avatar.svg'
+      - 'avatar.webp'
+      - 'data.json'
+      - 'data.en.json'
+      - 'en/**'
+      - 'qr-*.png'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'pku_courses.html'
+      - '404.html'
+      - '.nojekyll'
+      - 'baidu_verify_code-*.html'
   workflow_dispatch:
 
 permissions:
