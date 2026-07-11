@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "node scripts/build-content.js && node scripts/generate-meta.js && vite",
     "build": "node scripts/build-content.js && node scripts/generate-meta.js && vite build && node scripts/postbuild.js",
+    "sync:public": "node scripts/sync-public.js",
     "preview": "vite preview"
   },
   "repository": {

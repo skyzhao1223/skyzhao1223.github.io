@@ -19,12 +19,28 @@ export function validateSiteData(data) {
     .filter((item) => item.title);
 }
 
+const DATA_PATHS = {
+  zh: ['/data.json', '/public/data.json'],
+  en: ['/data.en.json', '/public/data.en.json'],
+};
+
 export async function fetchSiteData() {
-  const dataFile = getLang() === 'en' ? '/data.en.json' : '/data.json';
-  const response = await fetch(dataFile);
-  if (!response.ok) {
-    throw new Error(`Failed to load ${dataFile} (${response.status})`);
+  const paths = DATA_PATHS[getLang()] || DATA_PATHS.zh;
+  let lastError;
+
+  for (const path of paths) {
+    try {
+      const response = await fetch(path);
+      if (!response.ok) {
+        lastError = new Error(`Failed to load ${path} (${response.status})`);
+        continue;
+      }
+      const data = await response.json();
+      return validateSiteData(data);
+    } catch (err) {
+      lastError = err;
+    }
   }
-  const data = await response.json();
-  return validateSiteData(data);
+
+  throw lastError || new Error('Failed to load site data');
 }

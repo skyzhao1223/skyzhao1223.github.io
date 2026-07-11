@@ -1,0 +1,134 @@
+{
+  "tags": [
+    "ai",
+    "badminton",
+    "band",
+    "cycling",
+    "design",
+    "driving",
+    "gaming",
+    "music",
+    "photo",
+    "product",
+    "ski",
+    "tennis"
+  ],
+  "items": [
+    {
+      "title": "AI 应用实验",
+      "type": "project",
+      "category": "work",
+      "tags": [
+        "ai"
+      ],
+      "desc": "探索 AI Agent 在实际产品场景中的应用。",
+      "date": "2026-04"
+    },
+    {
+      "title": "王者荣耀 巅峰 1700+",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "gaming"
+      ],
+      "desc": "巅峰赛 1700+。",
+      "date": "2026-04"
+    },
+    {
+      "title": "AI 创意工作流",
+      "type": "note",
+      "category": "work",
+      "tags": [
+        "ai",
+        "design"
+      ],
+      "desc": "用 AI 辅助文案、视觉、原型的生成流程。",
+      "date": "2026-03"
+    },
+    {
+      "title": "骑行跑山",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "cycling"
+      ],
+      "desc": "公路车跑山，享受爬坡和下坡的节奏。",
+      "date": "2026-03"
+    },
+    {
+      "title": "羽毛球 2.0",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "badminton"
+      ],
+      "desc": "娱乐局为主，水平大概 2.0。",
+      "date": "2026-02"
+    },
+    {
+      "title": "网球 2.5",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "tennis"
+      ],
+      "desc": "在练，目前 NTRP 2.5。",
+      "date": "2026-02"
+    },
+    {
+      "title": "卡丁车 & 漂移",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "driving"
+      ],
+      "desc": "卡丁车、漂移，喜欢驾驶的操控感。",
+      "date": "2026-01"
+    },
+    {
+      "title": "崇礼滑雪记录",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "ski",
+        "photo"
+      ],
+      "desc": "崇礼的一次 freeride，粉雪日。",
+      "date": "2026-01"
+    },
+    {
+      "title": "skyzhao1223.github.io",
+      "type": "project",
+      "category": "work",
+      "tags": [
+        "design",
+        "product"
+      ],
+      "desc": "个人主站，作品、博客、实验。",
+      "url": "https://skyzhao1223.github.io",
+      "date": "2025-06"
+    },
+    {
+      "title": "Skypiea 天空之城",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "music",
+        "band"
+      ],
+      "desc": "高中时期组建的乐队，吉他 + 主唱。",
+      "date": "2025-03"
+    },
+    {
+      "title": "PKU 课程归档",
+      "type": "project",
+      "category": "work",
+      "tags": [
+        "product"
+      ],
+      "desc": "北大课程录像与资料的检索和下载工具。",
+      "url": "/pku_courses.html",
+      "date": "2024-09"
+    }
+  ]
+}

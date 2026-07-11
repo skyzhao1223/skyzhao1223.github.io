@@ -14,18 +14,3 @@ resume.pdf
 # System files
 .DS_Store
 *.log
-
-# Generated / synced site artifacts (canonical copies live in public/ or dist/)
-/en/
-/data.json
-/data.en.json
-/404.html
-/sitemap.xml
-/robots.txt
-/pku_courses.html
-/baidu_verify_code-*.html
-/avatar.png
-/avatar.webp
-/avatar.svg
-/qr-*.png
-/.nojekyll
