@@ -3,10 +3,12 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [master]
+    paths-ignore:
+      - 'docs/**'
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -27,10 +29,24 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+      - run: npm run prepare:pages
+
+      - name: Commit static GitHub Pages files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html en .nojekyll 404.html avatar.png avatar.svg avatar.webp \
+            baidu_verify_code-UbTTXiJc1F.html data.json data.en.json \
+            qr-alipay.png qr-wechat-pay.png qr-wechat.png \
+            robots.txt sitemap.xml pku_courses.html
+          git diff --staged --quiet || git commit -m "chore: sync static GitHub Pages assets [skip ci]"
+          git push
+
+      - run: rm -rf docs && cp -r dist docs
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: docs
 
   deploy:
     needs: build

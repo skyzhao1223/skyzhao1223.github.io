@@ -1,0 +1,134 @@
+{
+  "tags": [
+    "ai",
+    "badminton",
+    "band",
+    "cycling",
+    "design",
+    "driving",
+    "gaming",
+    "music",
+    "photo",
+    "product",
+    "ski",
+    "tennis"
+  ],
+  "items": [
+    {
+      "title": "AI Application Experiments",
+      "type": "project",
+      "category": "work",
+      "tags": [
+        "ai"
+      ],
+      "desc": "Exploring AI Agent applications in real product scenarios.",
+      "date": "2026-04"
+    },
+    {
+      "title": "Honor of Kings — Peak 1700+",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "gaming"
+      ],
+      "desc": "Peak competitive rank 1700+.",
+      "date": "2026-04"
+    },
+    {
+      "title": "AI Creative Workflow",
+      "type": "note",
+      "category": "work",
+      "tags": [
+        "ai",
+        "design"
+      ],
+      "desc": "AI-assisted workflow for copywriting, visuals, and prototyping.",
+      "date": "2026-03"
+    },
+    {
+      "title": "Mountain Cycling",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "cycling"
+      ],
+      "desc": "Road cycling in the mountains — enjoying the rhythm of climbs and descents.",
+      "date": "2026-03"
+    },
+    {
+      "title": "Badminton 2.0",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "badminton"
+      ],
+      "desc": "Mostly casual games, around 2.0 level.",
+      "date": "2026-02"
+    },
+    {
+      "title": "Tennis 2.5",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "tennis"
+      ],
+      "desc": "Still training — currently NTRP 2.5.",
+      "date": "2026-02"
+    },
+    {
+      "title": "Karting & Drifting",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "driving"
+      ],
+      "desc": "Karting and drifting — love the feel of handling a car.",
+      "date": "2026-01"
+    },
+    {
+      "title": "Chongli Ski Trip",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "ski",
+        "photo"
+      ],
+      "desc": "A freeride day in Chongli — fresh powder.",
+      "date": "2026-01"
+    },
+    {
+      "title": "skyzhao1223.github.io",
+      "type": "project",
+      "category": "work",
+      "tags": [
+        "design",
+        "product"
+      ],
+      "desc": "Personal main site — portfolio, blog, and experiments.",
+      "url": "https://skyzhao1223.github.io",
+      "date": "2025-06"
+    },
+    {
+      "title": "Skypiea — Castle in the Sky",
+      "type": "note",
+      "category": "life",
+      "tags": [
+        "music",
+        "band"
+      ],
+      "desc": "A band formed in high school — guitar and vocals.",
+      "date": "2025-03"
+    },
+    {
+      "title": "PKU Course Archive",
+      "type": "project",
+      "category": "work",
+      "tags": [
+        "product"
+      ],
+      "desc": "A search and download tool for Peking University course recordings and materials.",
+      "url": "/pku_courses.html",
+      "date": "2024-09"
+    }
+  ]
+}

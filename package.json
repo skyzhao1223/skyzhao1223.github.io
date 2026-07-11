@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node scripts/build-content.js && vite",
     "build": "node scripts/build-content.js && vite build && node scripts/postbuild.js",
+    "prepare:pages": "node scripts/prepare-pages.js",
     "preview": "vite preview"
   },
   "repository": {

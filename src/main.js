@@ -1,4 +1,3 @@
-import './styles.css';
 import { initI18n, getLang } from './i18n/index.js';
 import { initCoffee } from './components/coffee.js';
 
