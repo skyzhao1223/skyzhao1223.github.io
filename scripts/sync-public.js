@@ -6,6 +6,7 @@ const { writeBilingualPages } = require('./i18n-html');
 
 const rootDir = path.join(__dirname, '..');
 const publicDir = path.join(rootDir, 'public');
+const templatePath = path.join(rootDir, 'index.template.html');
 
 for (const name of fs.readdirSync(publicDir)) {
   const src = path.join(publicDir, name);
@@ -18,9 +19,13 @@ for (const name of fs.readdirSync(publicDir)) {
   }
 }
 
+if (!fs.existsSync(templatePath)) {
+  throw new Error('index.template.html is required for sync:public');
+}
+
 writeBilingualPages({
   rootDir,
-  zhHtmlPath: path.join(rootDir, 'index.html'),
+  zhHtmlPath: templatePath,
   zhOutPath: path.join(rootDir, 'index.html'),
   enOutPath: path.join(rootDir, 'en', 'index.html'),
   domain: siteUrl,

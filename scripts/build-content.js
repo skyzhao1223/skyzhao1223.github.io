@@ -7,6 +7,12 @@ const publicDir = path.join(__dirname, '..', 'public');
 const outFileZh = path.join(publicDir, 'data.json');
 const outFileEn = path.join(publicDir, 'data.en.json');
 
+function isSafeUrl(url) {
+  if (typeof url !== 'string' || !url.trim()) return false;
+  if (url.startsWith('/')) return !url.startsWith('//');
+  return /^https?:\/\//i.test(url);
+}
+
 function parseFrontMatter(raw) {
   const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
   if (!match) return { meta: {}, body: raw.trim() };
@@ -28,11 +34,15 @@ function parseFrontMatter(raw) {
 }
 
 if (!fs.existsSync(contentDir)) {
-  console.log('No content/ directory found, skipping content build.');
+  console.log('No content/ directory found, using existing public/data.json.');
   process.exit(0);
 }
 
 const files = fs.readdirSync(contentDir).filter(f => f.endsWith('.md')).sort();
+if (files.length === 0) {
+  console.log('No markdown files in content/, using existing public/data.json.');
+  process.exit(0);
+}
 const zhItems = [];
 const enItems = [];
 const tagSet = new Set();
@@ -43,6 +53,10 @@ for (const file of files) {
 
   const tags = Array.isArray(meta.tags) ? meta.tags : [];
   tags.forEach(t => tagSet.add(t));
+
+  if (meta.url && !isSafeUrl(meta.url)) {
+    throw new Error(`Unsafe url in ${file}: ${meta.url}`);
+  }
 
   zhItems.push({
     title: meta.title || file.replace('.md', ''),

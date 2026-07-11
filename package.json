@@ -7,9 +7,10 @@
     "node": ">=22"
   },
   "scripts": {
-    "dev": "node scripts/build-content.js && node scripts/generate-meta.js && vite",
-    "build": "node scripts/build-content.js && node scripts/generate-meta.js && vite build && node scripts/postbuild.js",
+    "dev": "node scripts/use-template.js && node scripts/build-content.js && node scripts/generate-meta.js && vite",
+    "build": "node scripts/use-template.js && node scripts/build-content.js && node scripts/generate-meta.js && node scripts/validate-data.js && vite build && node scripts/postbuild.js",
     "sync:public": "node scripts/sync-public.js",
+    "validate:data": "node scripts/validate-data.js",
     "preview": "vite preview"
   },
   "repository": {
