@@ -35,6 +35,11 @@ export async function initI18n() {
 
   document.querySelectorAll('[data-i18n]').forEach((el) => {
     const key = el.dataset.i18n;
+    if (msgs[key] !== undefined) el.textContent = msgs[key];
+  });
+
+  document.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const key = el.dataset.i18nHtml;
     if (msgs[key] !== undefined) el.innerHTML = msgs[key];
   });
 
