@@ -357,7 +357,11 @@ fetch(dataFile)
   });
 
 /* ============== i18n 初始化 ============== */
-initI18n();
-
-/* ============== Coffee 组件 ============== */
-initCoffee();
+initI18n()
+  .then(() => {
+    initCoffee();
+  })
+  .catch((err) => {
+    console.error('Failed to load i18n:', err);
+    document.querySelectorAll('.reveal').forEach((el) => el.classList.add('in'));
+  });

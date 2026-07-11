@@ -1,13 +1,11 @@
-import { getLang } from '../i18n/index.js';
-import zhMsgs from '../i18n/zh.json';
-import enMsgs from '../i18n/en.json';
+import { getLang, getMessages } from '../i18n/index.js';
 
 export function initCoffee() {
   const container = document.getElementById('coffee');
   if (!container) return;
 
   const lang = getLang();
-  const msgs = lang === 'en' ? enMsgs : zhMsgs;
+  const msgs = getMessages();
   const label = container.dataset.label || msgs.coffee_label;
   const theme = container.dataset.theme || 'dark';
   const base = (container.dataset.base || '/').replace(/\/?$/, '/');
