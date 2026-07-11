@@ -40,7 +40,7 @@ jobs:
           git diff --staged --quiet || git commit -m "chore: sync public assets for GitHub Pages [skip ci]"
           git push
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: dist
 
