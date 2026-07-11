@@ -6,7 +6,7 @@ const distDir = path.join(__dirname, '..', 'dist');
 const zhHtml = path.join(distDir, 'index.html');
 const enDir = path.join(distDir, 'en');
 const enHtml = path.join(enDir, 'index.html');
-const domain = 'https://zhaosky.cn';
+const { siteUrl: domain } = require('./site-config');
 
 const enJson = JSON.parse(
   fs.readFileSync(path.join(__dirname, '..', 'src', 'i18n', 'en.json'), 'utf-8')
