@@ -1,0 +1,19 @@
+{
+  "name": "qinglong-scripts-subscribe-example",
+  "type": "public-repo",
+  "url": "https://github.com/<your-name>/qinglong-scripts.git",
+  "branch": "main",
+  "schedule": "0 0 */1 * *",
+  "alias": "qinglong-scripts",
+  "whitelist": "jd_|jx_|jddj_|utils_",
+  "blacklist": "sign|backUp",
+  "dependences": "^jd[^_]|USER|utils|function|jdCookie",
+  "extensions": "js py sh ts",
+  "sub_before": "echo '开始拉取 qinglong-scripts'",
+  "sub_after": "echo '拉取完成'",
+  "pull_type": "ssh-key",
+  "pull_option": {
+    "private_key": "~/.ssh/id_ed25519"
+  },
+  "remarks": "示例订阅配置，请按需修改 url、whitelist、blacklist 等字段"
+}

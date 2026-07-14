@@ -1,0 +1,16 @@
+crypto-js
+got
+tough-cookie
+tslib
+ws@7.4.3
+ts-md5
+jsdom
+jsdom -g
+date-fns
+form-data
+json5
+global-agent
+png-js
+@types/node
+require
+typescript
