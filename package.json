@@ -26,6 +26,6 @@
   },
   "homepage": "https://skyzhao1223.github.io",
   "devDependencies": {
-    "vite": "^8.0.16"
+    "vite": "^8.1.5"
   }
 }
